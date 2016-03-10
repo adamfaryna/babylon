@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app="main" ng-strict-di>
+
+<head>
+  <meta charset="utf-8">
+  <title>Babylon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Adam Faryna (https://github.com/adamfaryna)">
+  <meta name="description" content="">
+  <meta name="robots" content="all">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+
+<body layout="row" ng-cloak>
+  <md-content class="md-padding">
+    <md-tabs md-dynamic-height md-border-bottom class="md-primary">
+      <md-tab label="Home" ui-sref="home"></md-tab>
+      <md-tab label="Book a Consultation" ui-sref="booking"></md-tab>
+    </md-tabs>
+    <ui-view layout="column" flex md-scroll-y layout-fill layout-padding></ui-view>
+  </md-content>
+  <footer></footer>
+</div>
+  <!-- bower:js -->
+  <!-- endbower -->
+  <!-- inject:js -->
+  <!-- endinject -->
+</body>
+</html>
