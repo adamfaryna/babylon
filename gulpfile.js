@@ -1,5 +1,5 @@
 'use strict';
-
+// jshint ignore: start
 var gulp              = require('gulp');
 var browserSync       = require('browser-sync').create();
 var $                 = require('gulp-load-plugins')();
@@ -87,13 +87,21 @@ gulp.task('inject', ['copyPartials'], () => {
       src: './public/index.html',
       directory: './public/bower_components'
     }))
-    .pipe(gulp.dest('./public'));
+    .pipe(gulp.dest('./public'))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('copyPartials', () => {
   return gulp.src(['./src/**/*.html', './src/fonts/*.*', './src/images/*.*', './src/favicon.ico'], { base: 'src' })
-    .pipe(gulp.dest('./public/'));
+    .pipe(gulp.dest('./public/'))
+    .pipe(browserSync.stream());
 });
+
+function copyFile(file) {
+  return gulp.src(file.path, { base: 'src'})
+    .pipe(gulp.dest('./public/'))
+    .pipe(browserSync.stream());
+}
 
 // Static Server + watching files
 gulp.task('serve', () => {
@@ -101,12 +109,15 @@ gulp.task('serve', () => {
     browserSync.init({
       browser: ['google chrome'],
       server: 'public/',
-      port: '3000'
+      port: '3000',
+      ui: false
     });
 
     gulp.watch('./less/*.less', ['less']);
     gulp.watch('./src/**/*.es6', ['scripts']);
-    gulp.watch('./src/**/*.html', ['copyPartials']);
+    gulp.watch('./src/**/*.html').on('change', (file) => {
+      return copyFile(file);
+    });
     gulp.watch(['./public/**/*.*', '!./public/bower_components']).on('change', browserSync.reload);
   });
 });

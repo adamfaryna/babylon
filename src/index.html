@@ -15,16 +15,38 @@
   <!-- endinject -->
 </head>
 
-<body layout="row" ng-cloak>
-  <md-content class="md-padding">
-    <md-tabs md-dynamic-height md-border-bottom class="md-primary">
-      <md-tab label="Home" ui-sref="home"></md-tab>
-      <md-tab label="Book a Consultation" ui-sref="booking"></md-tab>
-    </md-tabs>
-    <ui-view layout="column" flex md-scroll-y layout-fill layout-padding></ui-view>
-  </md-content>
-  <footer></footer>
-</div>
+<body ng-cloak layout="column">
+  <header class="master">
+    <div class="container">
+      <div class="logo"></div>
+      <md-tabs md-dynamic-height md-border-bottom class="md-primary">
+        <md-tab label="Home" ui-sref="home"></md-tab>
+        <md-tab label="Book a Consultation" ui-sref="booking"></md-tab>
+      </md-tabs>
+    </div>
+  </header>
+  <div class="master container">
+    <ui-view flex md-scroll-y></ui-view>
+  </div>
+
+<footer class="master container" layout="column" layout-align="start center" flex space-between>
+  <div class="bottom-container" layout="row" layout-align="start center">
+    <div class="meta-container" layout="row">
+      <div id="copyright">
+        Babylon Health © 2015 All Right Reserved.
+      </div>
+      <div class="footer-links">
+        <div id="termsOfUse" on-click="javascript:void(0)">Terms of Use</div>
+        <div id="privacyPolicy" on-click="javascript:void(0)">Privacy Policy</div>
+        <div id="siteMap" on-click="javascript:void(0)">Site Map</div>
+      </div>
+    </div>
+    <div class="mobile-links" flex layout="row" layout-align="end center">
+      <div class="appstore-icon"></div>
+      <div class="google-play-icon"></div>
+    </div>
+  </div>
+</footer>
   <!-- bower:js -->
   <!-- endbower -->
   <!-- inject:js -->

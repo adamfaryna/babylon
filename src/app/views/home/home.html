@@ -1,13 +1,28 @@
-<h2>Welcome, How Can We Help You?</h2>
+<md-content class="md-padding" layout="column" layout-fill layout-padding>
+  <h2>Welcome, How Can We Help You?</h2>
 
-<md-card-content>
-  <fa-stethoscope></fa-stethoscope><h2>Book a Consultation</h2>
-
-  Seeing a doctor is easy. You can book a consultation in seconds and speak to a leading GP in minutes. Most of the time
-  patients problems are resolved there and then, with prescriptions arranged where necessary.
-  Our UK and Ireland based GPs are available wherever you are, at a time that suits you.
-
-  Unlimited consultations for just £4.99 or €7.99 per month.
-  <virtualDocImg></virtualDocImg>
-  <md-button ui-sref="booking">SEE A DOCTOR NOW</md-button>
-</md-card-content>
+  <md-card>
+    <md-card-title>
+      <md-card-title-media>
+        <div class="md-media-sm card-media">
+          <div class="stethoscope"></div>
+        </div>
+      </md-card-title-media>
+      <md-card-title-text>
+        <span class="md-headline">Book a Consultation</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <p>
+        Seeing a doctor is easy. You can book a consultation in seconds and speak to a leading GP in minutes. Most of the time
+        patients problems are resolved there and then, with prescriptions arranged where necessary.<br>
+        Our UK and Ireland based GPs are available wherever you are, at a time that suits you.
+      </p>
+      <p class="bold">
+        Unlimited consultations for just £4.99 or €7.99 per month.
+      </p>
+      <div class="virtualdoc"></div>
+      <md-button class="md-raised md-primary" ui-sref="booking">SEE A DOCTOR NOW</md-button>
+    </md-card-content>
+  </md-card>
+</md-content>
